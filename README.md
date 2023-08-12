@@ -1,6 +1,6 @@
 # Chat with Documents - LangChain
 
-Welcome to **Chat with Documents - LangChain**, a powerful and interactive tool designed to enable seamless communication with multiple PDF,TEXT,DOCX documents using natural language processing. This comprehensive guide will walk you through the effortless installation, setup, and utilization of this innovative application.
+Welcome to **Chat with Documents - LangChain**, a powerful and interactive tool designed to enable seamless communication with multiple  documents using natural language processing. This comprehensive guide will walk you through the effortless installation, setup, and utilization of this innovative application.
 
 ## supported documents
 
@@ -50,11 +50,11 @@ Upon successful installation and setup, immerse yourself in the world of Chat wi
 3. **Explore the User Interface:**
     Witness the seamless interface of Chat with Documents - LangChain as it gracefully unfolds in your default web browser. Take a moment to acquaint yourself with the intuitive layout.
 
-4. **Load PDF Documents:**
-    Follow the on-screen guidelines to seamlessly load multiple PDF documents into the app. These documents will be primed for interaction within the chat interface.
+4. **Load Documents:**
+    Follow the on-screen guidelines to seamlessly load multiple documents into the app (supporting .txt, .docx, .pdf). These documents will be primed for interaction within the chat interface.
 
 5. **Ask Questions:**
-    Engage the chat interface to pose questions using natural language, eliciting insights from the loaded PDFs. The app harnesses the prowess of the OpenAI API to provide pertinent responses derived from the PDF content.
+    Engage the chat interface to pose questions using natural language, eliciting insights from the loaded Documents. The app harnesses the prowess of the OpenAI API to provide pertinent responses derived from the Documents content.
 
 ## Contributing
 
