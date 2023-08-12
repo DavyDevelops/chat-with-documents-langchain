@@ -4,8 +4,8 @@ Welcome to **Chat with Documents - LangChain**, a powerful and interactive tool 
 
 ## supported documents
 
-PDF
-TEXT
+PDF,
+TEXT,
 DOCX
 
 ## Installation
