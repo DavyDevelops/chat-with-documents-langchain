@@ -9,6 +9,15 @@ from langchain.llms import OpenAI
 from langchain.callbacks import get_openai_callback
 import docx2txt
 import pinecone
+from dotenv import load_dotenv, find_dotenv
+
+# Load the .env file
+load_dotenv(find_dotenv())
+
+# Get the OPENAI_API_KEY
+openai_api_key = os.getenv("my_OPENAI_API_KEY")
+pinecone_api_key = os.getenv("my_pinecone_api_key")
+index_name = os.getenv("my_index_name")
 
 def main():
     st.set_page_config(page_title="Ask your Documents")
@@ -16,8 +25,16 @@ def main():
 
     # load files from directory
     directory = st.text_input("Enter your directory:")
-    file_types = ["pdf", "txt", "docx"]
-    all_files = [f for f in os.listdir(directory) if any(f.endswith(ft) for ft in file_types)]
+    if directory:
+        try:
+            file_types = ["pdf", "txt", "docx"]
+            all_files = [f for f in os.listdir(directory) if any(f.endswith(ft) for ft in file_types)]
+        except FileNotFoundError:
+            st.write(f"Directory not found: {directory}")
+            return
+    else:
+        st.write("Please enter a directory.")
+        return
 
     # extract text from files
     all_text = ""
@@ -49,8 +66,7 @@ def main():
     chunks = text_splitter.split_text(all_text)
 
     # create embeddings with Pinecone
-    pinecone.init(api_key="b6eb1ad9-3029-449d-9155-1577bad3d8e5")
-    index_name = "combsartificialintelligence"
+    pinecone.init(api_key=pinecone_api_key)
     if index_name not in pinecone.list_indexes():
         pinecone.create_index(name=index_name, metric="cosine", shards=1)
     indexer = pinecone.Index(index_name=index_name)

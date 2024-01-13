@@ -1,2 +1,6 @@
 .env
 venv
+.env.user
+.venv
+myenv
+__pycache__
