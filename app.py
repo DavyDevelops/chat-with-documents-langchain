@@ -45,18 +45,19 @@ def main():
     )
     chunks = text_splitter.split_text(all_text)
   
-    # Create Embeddings
+    # Create Embeddings 
     embeddings = OpenAIEmbeddings()
     if embeddings:
         knowledge_base = FAISS.from_texts(texts=chunks, embedding=embeddings)  # Update the parameter names
     else:
         st.write("Error: No embedding found")
 
-    # show user input
+    # Show user input
     user_question = st.text_input("Ask a question about the uploaded documents:")
     if user_question:
         docs = knowledge_base.similarity_search(user_question)
     
+        # instance
         llm = OpenAI()
         chain = load_qa_chain(llm, chain_type="stuff")
         with get_openai_callback() as cb:
